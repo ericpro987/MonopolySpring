@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller // eso signfica que es un controller
-@RequestMapping(path = "/monopoly/jugador") // esto es el path de la RAIZ de la API
-public class JugadorController {
+@RequestMapping(path = "/monopoly/propietat") // esto es el path de la RAIZ de la API
+    public class PropietatController {
 	@Autowired // creanme
-	private JugadorRepository repository;
+	private PropietatRepository repository;
 
 	@GetMapping(path = "/hola")
 	public @ResponseBody String test() {
@@ -78,8 +78,8 @@ public class JugadorController {
 	}
 */
 
-	@GetMapping(path = "/allPorPartida/{id}")
-	public @ResponseBody Iterable<Jugador> getAllJugadorsPorPartida(@PathVariable int id) {
-		return repository.findByPartida_Id(id);// Toda clase de Java la devuelve como un JSON
+	@GetMapping(path = "/allPorJugador/{id}")
+	public @ResponseBody Iterable<Propietat> getAllPropietatsPorJugador(@PathVariable int id) {
+		return repository.findByJugador_Id(id);// Toda clase de Java la devuelve como un JSON
 	}
 }

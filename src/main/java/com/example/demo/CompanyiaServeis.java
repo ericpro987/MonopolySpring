@@ -1,11 +1,11 @@
 package com.example.demo;
-import org.springframework.data.relational.core.mapping.Table;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.Table;
 
 @Entity
 @DiscriminatorValue("Companyia")

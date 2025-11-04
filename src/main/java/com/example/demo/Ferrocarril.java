@@ -2,6 +2,7 @@ package com.example.demo;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @DiscriminatorValue("Ferro")

@@ -11,7 +11,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "Color")
 public class Color {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +20,7 @@ public class Color {
 	@Column
 	String nom;
 	@OneToMany
-	Set<Propietat> propietats = new HashSet<Propietat>();
+	Set<Propietat> propietat = new HashSet<Propietat>();
 
 	public Color() {
 		super();
@@ -39,12 +39,12 @@ public class Color {
 		this.nom = nom;
 	}
 
-	public Set<Propietat> getPropietats() {
-		return propietats;
+	public Set<Propietat> getPropietat() {
+		return propietat;
 	}
 
-	public void setPropietats(Set<Propietat> propietats) {
-		this.propietats = propietats;
+	public void setPropietat(Set<Propietat> propietat) {
+		this.propietat = propietat;
 	}
 
 	public int getId() {

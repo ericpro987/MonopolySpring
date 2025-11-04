@@ -1,4 +1,6 @@
 package com.example.demo;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.DiscriminatorType;
@@ -9,10 +11,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="tipusPropietat", discriminatorType = DiscriminatorType.STRING)
+@Table(name = "Propietat")
 public abstract class Propietat {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +33,7 @@ public abstract class Propietat {
 	@Column
 	int posicio;
 	
+	@JsonBackReference
 	@ManyToOne
 	Jugador jugador;
 	public String getNom() {

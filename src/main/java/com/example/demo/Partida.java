@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,8 +17,8 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
+@Table(name = "Partida")
 @Entity
-@Table
 public class Partida {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +35,8 @@ public class Partida {
 	@Column
 	String estat;
 
-	@ManyToMany(mappedBy = "partides")
+	@ManyToMany(mappedBy = "partida", fetch = jakarta.persistence.FetchType.EAGER)
+	@JsonBackReference(value = "partida-jugador")
 	Set<Jugador> jugadors;
 
 	public Date getDataInici() {
